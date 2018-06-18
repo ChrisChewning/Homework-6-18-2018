@@ -58,11 +58,31 @@ console.log('hi');
 //   }
 // }
 
+//
+// #2:
 
-#2:
 
+// Make an array that holds all of the colors of the rainbow.
+// Write code that will access "blue" from the rainbow array.
+// Make an object that is called your name and holds the information about your favorite food, a hobby, the name of the town that you live in currently, and your favorite datatype.
+// Write code that will access your hobby from the object that you just created.
 
-Make an array that holds all of the colors of the rainbow.
-Write code that will access "blue" from the rainbow array.
-Make an object that is called your name and holds the information about your favorite food, a hobby, the name of the town that you live in currently, and your favorite datatype.
-Write code that will access your hobby from the object that you just created.
+const colorsOfRainbow = [
+  'Red',
+  'Orange',
+  'Yellow',
+  'Green',
+  'Blue',
+  'Indigo',
+  'Violet'
+]
+
+console.log(colorsOfRainbow[4]); //if oyu put colorsOfRainbow.blue it says undefined. 
+
+const yourName = {
+  favoriteFood: 'pizza',
+  hobby: 'running',
+  town: 'Austin',
+  favDataType: 'Objects'
+}
+console.log(yourName.hobby);
