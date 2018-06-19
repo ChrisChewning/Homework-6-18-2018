@@ -132,7 +132,7 @@ console.log(crazyObject.taco[1].salsa[5]);
 console.log(crazyObject.larry.quotes[0]);
 
 // "Swearing at Larry and Jeff"
-console.log(crazyObject.larry[2].favouriteHobby);
+// console.log(crazyObject.larry[2].favouriteHobby);
 
 // "Chicken Teriyaki Boyyyyyy"
 console.log(crazyObject.larry.nicknames[1]);
@@ -159,11 +159,12 @@ const inception = {
                }
            }
        }
-//    }
-// }
+   }
+}
 // // Change the value of limbo to null.
 
-console.log( inception.reality.dreamLayer1.dreamLayer2.dreamLayer3.dreamLayer4.dreamLayer5.dreamLayer6.limbo = '');
+inception.reality.dreamLayer1.dreamLayer2.dreamLayer3.dreamLayer4.dreamLayer5.dreamLayer6.limbo = null;
+console.log(inception);
 
 //how to get null?
 // '' can be null in javascript.
@@ -208,12 +209,9 @@ const bondFilms = [
 
 const bondTitles = [];  //only the titles.
   for (i = 0; i < bondFilms.length; i++) {   //loop
-    if (bondFilms[i].titles === typeof(string)) {  //conditional
-      bondTitles.push(bondFilms[i].titles);  //method
+      bondTitles.push(bondFilms[i].title);  //method
     }
       console.log(bondTitles);
-    }
-      }
 //doesnt work
 
 
@@ -226,28 +224,39 @@ const bondTitles = [];  //only the titles.
 
 
 //#6: Create a new array oddBonds, of only the Bond films released on odd-numbered years.
-
-
+//
+//
 const oddBonds = [];
   for (i = 0; i < bondFilms.length; i++)
-  if bondFilms.year % 2 == 0 {
-    oddBonds.push(bondFilms[i].year)
+  if (bondFilms[i].year % 2 !== 0) {
+    oddBonds.push(bondFilms[i]) //.title it'll only push the titles of the odd years
     console.log(oddBonds);
   }
 
-// if (year[3] === 1 || 3 || || 5 ||7 || 9) { //doesnt work
-//   oddBonds[i] = ;
-// }
+//
+//
+//
+// //#7: Determine the total cumulative gross of the Bond franchise, and console.log the result. hint To make the grosses into usable numbers, look into the .replace Javascript method (there are many ways to do this, however). Look into parseInt also.
+//
+//
+// //parseInt will change typeof strings to typeof numbers.
+//
 
-
-
-//#7: Determine the total cumulative gross of the Bond franchise, and console.log the result. hint To make the grosses into usable numbers, look into the .replace Javascript method (there are many ways to do this, however). Look into parseInt also.
-
-
-//parseInt will change typeof strings to typeof numbers.
-
+//my attempt
 const summed = [];
 for (i = 0; i < bondFilms.length; i++) {
 parseInt(bondFilms.gross()) = summed[i] += summed;
 console.log(summed);
 }
+
+
+
+
+// Timothy's code he slacked to the class and went over.
+const culGross = bondFilms.reduce((accum, curr) => {
+        const reg = /\W+/g;
+        const currGross = parseInt(curr.gross.replace(reg, '')); //replace nonword characters.  (reg, '') the '' is don't replace empty spots.
+        return accum + currGross;
+    }, 0);  //
+
+    //the reduce method takes a function as its first parameter. the comma, 0 at the end sets the accumulator at the very beginning.
