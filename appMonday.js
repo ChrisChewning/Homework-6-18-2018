@@ -258,5 +258,6 @@ const culGross = bondFilms.reduce((accum, curr) => {
         const currGross = parseInt(curr.gross.replace(reg, '')); //replace nonword characters.  (reg, '') the '' is don't replace empty spots.
         return accum + currGross;
     }, 0);  //
+console.log(culGross.gross);
 
     //the reduce method takes a function as its first parameter. the comma, 0 at the end sets the accumulator at the very beginning.
