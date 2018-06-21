@@ -132,7 +132,6 @@ const computer = { //parent object #1 is player1
 //STEP 1: Shuffle with a randomizer.
 //STEP 2: Deal out the cards where the player has 9 and the computer has 9.
 
-
 //FUNCTION that randomizes cards.
 const dealDecks = () => {
   for (let i = 0; i < cardArray.length; i++) {
@@ -156,6 +155,42 @@ player.isPlayer = false; //now after that one card player is being read as false
 (dealDecks()); //calls the function in the log directly.
 
 //now how do you take a card out of each array.
+
+//STEP 3: FIGHT
+// The game will keep an array of cards and will deal 3 as the autoplayer to "fight" against the three that you play. Each of your cards will have some values associated with it. You will have to compare the value of your card to the computer's card to see which one wins.
+
+// track points for both the player and the computer Note: Points are determine by the following: If the player's card beats the computer's card, the player gets one point (and vice versa). If there is a tie, no one gets a point.
+
+
+//Best attempt at putting 3 cards into each players hands.
+
+//increment to cardsInHand.
+
+//push 3 cards into the empty arrays.
+const play = () => {
+  if player.cardsInHand <= 3 {
+  cardsFightPlayer.push();
+}
+  if (computer.cardsInHand) <= 3 {
+  cardsFightComputer.push)()
+  }
+}
+
+//function to have the computer play against the person.
+const fight = () => {
+for (i = 0; i < cardsInHand.length; i++) {
+  if (cardsInHand.length == computer.cardsInHand) {
+if (cardsFightPlayer.damage[i] > cardsFightComputer.damage[i]) {
+  return player.score++;
+} else if (computer.cardArray.damage[i] > player.cardArray.damage[i]) {
+  return computer.score++;
+} //note: do not need an else if { else } statement b.c if there's a tie nothing happens.
+}
+}
+}
+fight();
+
+
 
 
 // ---------------------------//MATH.RANDOM EXPLANATION----------------------------
