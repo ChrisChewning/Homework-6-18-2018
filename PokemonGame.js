@@ -132,21 +132,33 @@ const computer = { //parent object #1 is player1
 //STEP 1: Shuffle with a randomizer.
 //STEP 2: Deal out the cards where the player has 9 and the computer has 9.
 
+
 //FUNCTION that randomizes cards.
-const dealDecks = () => {
-  for (let i = 0; i < cardArray.length; i++) {
-    const randomCard = Math.floor(Math.random() * ((cardArray.length - 1) + 1));
-    console.log(randomCard);
+const dealDecks = () => {   //step 1: deals cards
+  for (let i = 0; i < cardArray.length; i++) { //iterate through array.
+    const randomCard = Math.floor(Math.random() * ((cardArray.length - 1) + 1)); //randomize the cards and puts the randomized ones into a variable called randomCard.
+    if (player.isPlayer) { //if player is true
+      if (player.cardsInDeck.includes(cardArray[randomCard])) { //and if after randomizing the cards in the original array, include them into our array cardsInDeck.
+
+//why .inclues and not .push?
+
+
+        i-- //then take one out? or make sure it doesn't duplicate?
+      }
+    console.log(randomCard); //log out the cards to check it.
 if (player.isPlayer) {  //if player is true.
-  player.cardsInDeck.push(cardArray[randomCard])  //gets the cardsInDeck array for player. .push from cardArray. You randomized the cards, like shuffling them, which randomized the array. You still have to go back to that array.
-//.push(cardArray) would only access the whole deck. [randomCard] is the const array that has been shuffled.
-//basically cardArray is a deck in order.
-//randomCard array is the deck shuffled, one by one. So you get one card. If the player is true you get one card.
-player.isPlayer = false; //now after that one card player is being read as false.
+  player.cardsInDeck.push(cardArray[randomCard]) //push a card into the player's cardsInDeck array. you set this up in the object as an empty array so you could push data into it.
+
+  //gets the cardsInDeck array for player. .push from cardArray. You randomized the cards, like shuffling them, which randomized the array. You still have to go back to that array.
+
+//note: .push(cardArray) would only access the whole deck. [randomCard] is the const array that has been shuffled. so you are pushing from the random cards into the cardsInDeck array.
+
+//basically cardArray is a deck in order & randomCard array is the deck shuffled, one by one. So you get one card. If the player is true you get one card.
+player.isPlayer = false; //we are on a loop. Now, if we set player.isPlayer as false, the second iteration over the loop will read it as false and move on to else.
 }
  else {
-   computer.cardsInDeck.push(cardArray[randomCard])
-   player.isPlayer = true
+   computer.cardsInDeck.push(cardArray[randomCard]) //you give the computer a card.
+   player.isPlayer = true //you set player's boolean value back to true.
  }
 }
 }
@@ -162,11 +174,8 @@ player.isPlayer = false; //now after that one card player is being read as false
 // track points for both the player and the computer Note: Points are determine by the following: If the player's card beats the computer's card, the player gets one point (and vice versa). If there is a tie, no one gets a point.
 
 
-//Best attempt at putting 3 cards into each players hands.
-
-//increment to cardsInHand.
-
-//push 3 cards into the empty arrays.
+//GET CARDS INTO THE HANDS
+//push 3 cards into the empty arrays named cardsInHand.
 const play = () => {
   if player.cardsInHand <= 3 {
   cardsFightPlayer.push();
@@ -175,47 +184,42 @@ const play = () => {
   cardsFightComputer.push)()
   }
 }
+//Now the player and computer both have 3 cards.
 
+
+
+
+//---------------------PLAY THE CARDS-----------------------
 //function to have the computer play against the person.
+
+
+//MY ATTEMPT
+// const fight = () => {
+// for (i = 0; i < cardsInHand.length; i++) {
+//   if (cardsInHand.length == computer.cardsInHand) {
+// if (cardsFightPlayer.damage[i] > cardsFightComputer.damage[i]) {
+//   return player.score++;
+// } else if (computer.cardArray.damage[i] > player.cardArray.damage[i]) {
+//   return computer.score++;
+// } //note: do not need an else if { else } statement b.c if there's a tie nothing happens.
+// }
+// }
+// }
+// fight();
+
+
+//TIM'S ATTEMPT
 const fight = () => {
-for (i = 0; i < cardsInHand.length; i++) {
-  if (cardsInHand.length == computer.cardsInHand) {
-if (cardsFightPlayer.damage[i] > cardsFightComputer.damage[i]) {
-  return player.score++;
-} else if (computer.cardArray.damage[i] > player.cardArray.damage[i]) {
-  return computer.score++;
-} //note: do not need an else if { else } statement b.c if there's a tie nothing happens.
+  if (player.cardsFightPlayer.damage === cardsFightComputer.damage) {
+    console.log(`${player.cardsFightPlayer.name} and ${computer.cardsFightComputer.name} are equals. You tie.`);
+  } else if (player.cardsFightPlayer.damage > cardsFightComputer.damage) {
+    console.log(`${player.cardsFightPlayer.name} beats ${computer.cardsFightPlayer.name}. Player wins.`);
+    player.score++ //you only increment b.c you get just one point.
+  } else {
+    console.log(`${computer.cardsFightComputer.name} beats ${player.cardsFightPlayer.name}. Computer wins`);
+    computer.score++
+  }
+  if (player.cardsInHand.length == 0) {
+    console.log(`The game is over.`); //can you use backticks?
+  }
 }
-}
-}
-fight();
-
-
-
-
-// ---------------------------//MATH.RANDOM EXPLANATION----------------------------
-
-//Math.floor is constantly bringing everything down one integer.
-//Math.random() is randomizing things.
-//cardArray.length is what you're randomizing from.
-//-1 is taking a card out of each loop. so cardArray has 18. it's going down to 17. then the next iteration to 16.
-//+1 is bringing the total back up to 18. then to 17. This makes sure you can include the 18th card.
-
-// Math.floor(Math.random() * (max - min +1)); but this is length max  - 1 min. since you're only going to use 1 card.
-// you don't need max - min and then + 1. +1 was a way to jump up 1, like to increment?
-//max is the cardArray.length -1 + 1. you don't have to have a minimum.
-
-
-
-// const human {
-//   sayName() { //problem is here?
-//     window.prompt("what's your name?");
-//   }
-// };
-// console.log(human.sayName());
-
-
-
-
-//method is attached to an object.
-//function stands alone
