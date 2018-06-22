@@ -74,7 +74,7 @@ const $ul = $('<ul/>') //create an unordered list.
 const makeHobbits = () => {
   for (let i = 0; i < hobbits.length; i++) {
   const $li = $('<li/>').text(hobbits[i]); //makes an li for each loop.
-  $li.attr('class', 'hobbit'); //atrr adds an attribute
+  $li.attr('class', 'hobbit'); //atrr adds an attribute of class to every hobbit.
   $($ul).append($li); //1st $ sign selects. the 2nd is part of the variable.
   $('#The-Shire').append($ul); //displays the unordered list of the hobbits to the shire section on your page.
 
@@ -95,17 +95,16 @@ makeHobbits();
 // ============
 // Chapter 3
 // ============
+
+
+
+
 const keepItSecretKeepItSafe = () => {
-
-  // 1. create an empty div with an id of 'the-ring'
-
-  // 2. add the ring as a child of Frodo
-
-  // hint: Frodo does not have an id, but there is a command to retrieve all elements with a certain class. This should give you an array for you to access . . .
-
-  // when you think you have given Frodo the ring, check in your Elements tab
-
+  const $div = $('<div id="the-ring"></div>');
+  $('.hobbit:eq(0)').append($div); //don't need quotes b.c it's a variable.
 };
+
+//you have to press the button for it to work. 
 
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 3 complete - Made the ring and gave it to Frodo".
