@@ -4,5 +4,15 @@ body {
 }
 
 .cat {
+  color: red;
   font-family: 'monospace';
+}
+
+.secret {
+  opacity: 0.5;
+}
+
+#list {
+  list-style-type: none;
+  /*  */no bullet points
 }
