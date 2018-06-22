@@ -216,6 +216,7 @@ $( () => {
 
 
   // YEAR 5
+  
   $('h4').eq(1).remove();
   $('li').eq(0).remove();
   $('h4').after($('<h4>').text('Rosewood Wand with Warg Hair Core').css('color','crimson').addClass('wand'));
