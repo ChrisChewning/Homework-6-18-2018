@@ -12,7 +12,28 @@ body {
   opacity: 0.5;
 }
 
-#list {
-  list-style-type: none;
-  /*  */no bullet points
+li {
+  list-style-type: none; /*  */no bullet points
+  margin: 0 auto; /* doesnt work */
+}
+
+ul {
+  margin: 0 auto; /* doesnt work */
+}
+
+table {
+  border: gray 1px solid;
+  margin: 0 auto; /*centers it. */
+}
+
+#tr1 {
+  border: orange 1px solid;
+}
+
+#day {
+  border: blue 1px solid;
+}
+
+#classes {
+  border: pink 1px solid;
 }
