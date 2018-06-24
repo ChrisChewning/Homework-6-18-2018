@@ -38,9 +38,9 @@ const lands = [
 // ============
 // Chapter 1
 // ============
-const makeMiddleEarth = () => {
+const makeMiddleEarth = () => {  //function to make middle earth, with an empty parameter.
 
-  console.log("Trying to make middle earth."); //testing
+  console.log("Trying to make middle earth."); //test to see if the function is working.
 
 
 
@@ -48,11 +48,17 @@ const $section = $('<section id="middle-earth">'); // 1. create a section tag wi
 $('body').append($section); // 2. append the section to the body of the DOM.
 
 
-  for(let i=0; i<lands.length;i++){
-    const $article = $('<article/>'); //creates an article tag.
-    $article.attr('id', lands[i]); //takes the attribute id from each lands.
+  for(let i=0; i<lands.length;i++){ //loops over 'The-Shire', 'Rivendale', and 'Mordor'
+
+    //ARTICLES
+    const $article = $('<article/>'); //creates an article tag for 'The-Shire', 'Rivendale', and 'Mordor'. 3 total.
+    $article.attr('id', lands[i]); //takes the attribute id from each lands. now 'The-Shire' has the id The-Shire, etc.
+
+    //H1s
     const $h1 = $('<h1/>'); //creates an h1
     $h1.text(lands[i]); //puts each of the lands names in the h1.
+
+    //APPEND THINGS
     $($section).append($article); //append section to the article.
     $article.append($h1); //append each h1 to the article.
 }
@@ -73,11 +79,13 @@ const $ul = $('<ul/>') //create an unordered list.
 
 const makeHobbits = () => {
   for (let i = 0; i < hobbits.length; i++) {
-  const $li = $('<li/>').text(hobbits[i]); //makes an li for each loop.
+  const $li = $('<li/>').text(hobbits[i]); //makes an li for each loop. with the text hobbits[i] so only one gets printed out per loop.
   $li.attr('class', 'hobbit'); //atrr adds an attribute of class to every hobbit.
-  $($ul).append($li); //1st $ sign selects. the 2nd is part of the variable.
-  $('#The-Shire').append($ul); //displays the unordered list of the hobbits to the shire section on your page.
+  $($ul).append($li); //Select ul with the $ sign. $selects  then $ul gets selected. important: use two $ signs.
+  //(1st $ sign selects. the 2nd is part of the variable. append the list to the ul
+  $('#The-Shire').append($ul); //displays the unordered list of the hobbits to the shire section on your page. Remember you choose first what you want to append to. Then you decide what you want to append.
 
+//didn't work..
   // const $li = <li class="hobbit"</li>
   // $('.hobbit:eq(0)').append($div);
   console.log('Make hobbits');
@@ -85,9 +93,11 @@ const makeHobbits = () => {
 };
 makeHobbits();
 //
-//   // 2. give each hobbit a class of "hobbit"
 
-makeHobbits();
+  // 1. display an unordered list of the hobbits in the shire.
+  // 2. give each hobbit a class of "hobbit"
+  // hint: create a 'ul' outside the loop upon which to append the 'li's
+  // hint: get 'The-Shire' by using its id
 
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 2 complete - Made the Hobbits".
@@ -97,29 +107,36 @@ makeHobbits();
 // ============
 
 
-
-
 const keepItSecretKeepItSafe = () => {
-  const $div = $('<div id="the-ring"></div>');
+  const $div = $('<div id="the-ring"></div>'); //empty div with id 'the-ring'
   $('.hobbit:eq(0)').append($div); //don't need quotes b.c it's a variable.
+  //look in the class hobbit (which you gave each hobbit in step 2).
+  //select the 1st hobbit. hobbit: eq(0). a
+  //append the div variable you created with the id "the-ring"
 };
+keepItSecretKeepItSafe(); //have to call it for it to work.
 
-//you have to press the button for it to work. 
+ // 1. create an empty div with an id of 'the-ring'
+ // 2. add the ring as a child of Frodo
+ // hint: Frodo does not have an id, but there is a command to retrieve all elements with a certain class. This should give you an array for you to access . . .
 
-// COMMIT YOUR WORK
-// The commit message should read: "Chapter 3 complete - Made the ring and gave it to Frodo".
+ // when you think you have given Frodo the ring, check in your Elements tab
+ //you have to press the button for it to work. why though?
 
 // ============
 // Chapter 4
 // ============
+
 const makeBaddies = () => {
 
-  // 1. display an unordered list of baddies in Mordor
+  const $ulBaddies = $('<ul>').appendTo($('#Mordor'));
 
-  // 2. give each of the baddies a class of "baddy"
-
-  // 3. remember to append them to Mordor
+  for (let i = 0; i < baddies.length; i++){
+  $('<li>').addClass('baddy').text(baddies[i]).appendTo($ulBaddies);
+}
 };
+makeBaddies();
+
 
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 4 complete - Made the Baddies"..
@@ -131,11 +148,18 @@ const makeBuddies = () => {
 
   // 1. create an aside tag and append it to middle-earth below mordor
 
+  const $aside = $('<aside>').appendTo($('#middle-earth')); //append aside to middle-earth
+  const $ulBuddies = $('<ul>').appendTo($('aside')); //append a ul to aside. it'll show up on middle-earth
+  for (let i = 0; i < buddies.length; i++) { //loop through buddies.
+    $('<li>').addClass('buddy').text(buddies[i]).appendTo($aside); //add a list for each item in buddies, give it a class 'buddy', and append it to aside.
+  }
+
   // 2. display an unordered list of buddies in the aside
-
   // 3. give each of the buddies a class of "buddy"
-
 };
+makeBuddies();
+
+//Chapter 5 complete - Made //the Buddies".
 
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 5 complete - Made the Buddies".
