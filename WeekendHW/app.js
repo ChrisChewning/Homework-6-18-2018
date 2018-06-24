@@ -51,7 +51,7 @@ $('body').append($section); // 2. append the section to the body of the DOM.
   for(let i=0; i<lands.length;i++){ //loops over 'The-Shire', 'Rivendale', and 'Mordor'
 
     //ARTICLES
-    const $article = $('<article/>'); //creates an article tag for 'The-Shire', 'Rivendale', and 'Mordor'. 3 total.
+    const $article = $('<article/>'); //creates an article tag for 'The-Shire', 'Rivendell', and 'Mordor'. 3 total.
     $article.attr('id', lands[i]); //takes the attribute id from each lands. now 'The-Shire' has the id The-Shire, etc.
 
     //H1s
@@ -168,12 +168,16 @@ makeBuddies();
 // Chapter 6
 // ============
 const leaveTheShire = () => {
-
+ //  const $hobbitsLi = $('.hobbits').detach();
+ //   $hobbitsLi.appendTo('#Rivendell');
+ // };
+  $('li.hobbit').appendTo("#Rivendell");
   // 1. grab the hobbits (the ul in which they reside) and move them to Rivendell
 
   // hint: the hobbits ul is a childNode of The-Shire-- there is way to get a list of childNodes
 
 };
+leaveTheShire();
 
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 6 complete - Left the Shire"
@@ -182,13 +186,10 @@ const leaveTheShire = () => {
 // Chapter 7
 // ============
 const beautifulStranger = () => {
-
-  // 1. change the buddy 'Strider' textnode to "Aragorn"
-
-  // hint: You can get a list of elements by tag name, such as 'aside'
-
+  $('aside.li.buddy:eq(3)').text('Aragorn');
+//NOTE: aside.li.buddy works and so does li.buddy.  However, aside.buddy does not. you're skipping the child-node so it can't read it.
 };
-
+beautifulStranger();
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 7 complete - Strider is changed to Aragorn"
 
@@ -214,9 +215,10 @@ const forgeTheFellowShip = () => {
 // Chapter 9
 // ============
 const theBalrog = () => {
+  
+
 
   // 1. change the 'Gandalf' textNode to 'Gandalf the White'
-
   // 2. add a class "the-white" to this element
 
   // 3. in the style.css file, add a css rule to make elements of the class "the-white" have a white background and a grey border
