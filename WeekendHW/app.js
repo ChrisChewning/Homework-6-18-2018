@@ -186,8 +186,10 @@ leaveTheShire();
 // Chapter 7
 // ============
 const beautifulStranger = () => {
-  $('aside.li.buddy:eq(3)').text('Aragorn');
-//NOTE: aside.li.buddy works and so does li.buddy.  However, aside.buddy does not. you're skipping the child-node so it can't read it.
+  $('li.buddy:eq(3)').text('Aragorn');
+//li.buddy does work.
+//aside.li.buddy does not work.
+//aside.buddy does not. you're skipping the child-node so it can't read it.
 };
 beautifulStranger();
 // COMMIT YOUR WORK
@@ -196,17 +198,22 @@ beautifulStranger();
 // ============
 // Chapter 8
 // ============
-const forgeTheFellowShip = () => {
+  const forgeTheFellowShip = () => {
+  const $div = $('<div id=\'the-fellowship\'>').append($('<h1>').text('The Fellowship')).appendTo('#middle-earth');
 
+  $('li.buddy').appendTo('#the-fellowship');
+  $('li.hobbit').appendTo('#the-fellowship');
+  //added them but now they're not in the other ones.
+    // console.log(beautifulStranger());
+
+// $table.append($('<tr>').append($('<td>').text('Monday')).append($('<td>').text('Herbology')));
   // 1. create a new div with an id 'the-fellowship'
-
   // 2. add an h1 with the text 'The Fellowship' to this new div
-
   // 3. append the fellowship to middle-earth
-
   // 4. add the unordered lists of hobbits and buddies to 'the-fellowship'
 
 };
+forgeTheFellowShip();
 
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 8 complete - The Fellowship is created"
@@ -215,16 +222,9 @@ const forgeTheFellowShip = () => {
 // Chapter 9
 // ============
 const theBalrog = () => {
-  
-
-
-  // 1. change the 'Gandalf' textNode to 'Gandalf the White'
-  // 2. add a class "the-white" to this element
-
-  // 3. in the style.css file, add a css rule to make elements of the class "the-white" have a white background and a grey border
-
+  $('.buddy:eq(0)').text('Gandalf the White').addClass('the-white');
 };
-
+theBalrog();
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 9 complete - Updated Gandalf"
 
