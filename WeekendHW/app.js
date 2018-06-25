@@ -249,12 +249,12 @@ hornOfGondor();
 // ============
 const itsDangerousToGoAlone = () => {
   const $div = $('<div id=\'mount-doom\'></div>').appendTo('#Mordor');
-  $('li.hobbit:eq(0)(1)').remove().appendTo("#Mordor");
+  $('li.hobbit:eq(0)').remove().appendTo("#Mordor");
   $('li.hobbit:eq(1)').remove().appendTo("#Mordor");
 
   //^ how to do this on one line?
 
-  
+
   // 1. take Frodo and Sam out of the fellowship and move them to Mordor (they don't need to be inside a ul in Mordor)
   // 2. add a div with an id of 'mount-doom' to Mordor
 };
