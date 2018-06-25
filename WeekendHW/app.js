@@ -240,7 +240,7 @@ const hornOfGondor = () => {
   // 3. Tricky: Remove the Uruk-Hai from the Baddies on the page
 
 };
-hornOfGondor()
+hornOfGondor();
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 10 complete - horn of gandor blew and Boromir is dead"
 
@@ -248,13 +248,17 @@ hornOfGondor()
 // Chapter 11
 // ============
 const itsDangerousToGoAlone = () => {
+  const $div = $('<div id=\'mount-doom\'></div>').appendTo('#Mordor');
+  $('li.hobbit:eq(0)(1)').remove().appendTo("#Mordor");
+  $('li.hobbit:eq(1)').remove().appendTo("#Mordor");
 
+  //^ how to do this on one line?
+
+  
   // 1. take Frodo and Sam out of the fellowship and move them to Mordor (they don't need to be inside a ul in Mordor)
-
   // 2. add a div with an id of 'mount-doom' to Mordor
-
 };
-
+  itsDangerousToGoAlone();
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 11 complete - Sam and Frodo are in Mordor and Mount Doom has been created"
 
