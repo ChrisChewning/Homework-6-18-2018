@@ -203,6 +203,7 @@ beautifulStranger();
 
   $('li.buddy').appendTo('#the-fellowship');
   $('li.hobbit').appendTo('#the-fellowship');
+
   //added them but now they're not in the other ones.
     // console.log(beautifulStranger());
 
@@ -252,6 +253,9 @@ const itsDangerousToGoAlone = () => {
   $('li.hobbit:eq(0)').remove().appendTo("#Mordor");
   $('li.hobbit:eq(1)').remove().appendTo("#Mordor");
 
+  // Also could have worked...
+  // $('#Mordor').append($('.hobbit:eq(0)'));
+  // $('#Mordor').append($('.hobbit:eq(1)'));
   //^ how to do this on one line?
 
 
@@ -266,15 +270,20 @@ const itsDangerousToGoAlone = () => {
 // Chapter 12
 // ============
 const weWantsIt = () => {
-
+  const $div = $('<div id=\'gollum\'>').appendTo('#Mordor');
+  $('#the-ring').appendTo('#gollum');
+  $('#gollum').appendTo('#mount-doom');
+  //  // 2. Move the ring from Frodo and give it to Gollum
+  //  $('#gollum').append($('#the-ring'));
+  //  // 3. Move Gollum into Mount Doom
+ // $('#the-ring').appendTo('#gollum');
+ // $('#gollum').appendTo('#mount-doom');
   // 1. Create a div with an id of 'gollum' and add it to Mordor
-
   // 2. Move the ring from Frodo and give it to Gollum
-
   // 3. Move Gollum into Mount Doom
 
 };
-
+weWantsIt();
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 12 complete - Gollum is trying to get the ring".
 
